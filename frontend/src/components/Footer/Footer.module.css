@@ -6,11 +6,24 @@
   background: var(--bg-main);
 }
 
-.footer a {
-  color: var(--wlu-gold);
-  text-decoration: none;
+.joinButton {
+  background: var(--wlu-gold);
+  color: var(--wlu-purple);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-.footer a:hover {
-  text-decoration: underline;
+.joinButton:hover {
+  background: #ffe08a;
+  transform: translateY(-2px);
 }
+
+.joinButton:focus {
+  outline: 2px solid var(--wlu-gold);
+  outline-offset: 2px;
+}
+

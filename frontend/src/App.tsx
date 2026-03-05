@@ -2,8 +2,6 @@ import { useEffect } from "react";
 import Scene from "./components/Scene/Scene";
 import Footer from "./components/Footer/Footer";
 
-const JOIN_FORM_URL = "https://github.com/your-username/cs-webring/pulls";
-
 export default function App() {
   useEffect(() => {
     if ("scrollRestoration" in history) {
@@ -15,7 +13,7 @@ export default function App() {
   return (
     <>
       <Scene />
-      <Footer joinUrl={JOIN_FORM_URL} />
+      <Footer />
     </>
   );
 }

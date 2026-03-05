@@ -8,7 +8,7 @@
 
 🌐 **Live Site:** [cs-webring.vercel.app](https://cs-webring.vercel.app)
 
-🔵 [What's a webring?](#whats-a-webring) / [How do I join?](#how-do-i-join) / [Embed the Widget](#embed-the-widget) / [Credits](#credits)
+🔵 [What's a webring?](#whats-a-webring) / [How do I join?](#how-do-i-join) / [Embed the Widget](#embed-the-widget) / [Deploy](#deploy) / [Credits](#credits)
 
 ---
 
@@ -50,7 +50,39 @@ Once approved, add the webring widget to your site so visitors can discover othe
 
 ---
 
-## Embed the Widget
+## Deploy
+
+This project is configured for deployment on **Vercel**. 
+
+### Quick Deploy
+```bash
+npm install -g vercel
+vercel --prod
+```
+
+### Full Setup
+See [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md) for complete deployment instructions.
+
+### Local Development
+```bash
+# Terminal 1: Backend API
+cd backend
+node index.js
+
+# Terminal 2: Frontend
+cd frontend
+npm run dev
+```
+
+For convenience, use the included deployment commands:
+```bash
+source vercel-commands.sh
+help                    # Show available commands
+dev-all                 # Start both backend and frontend
+vercel-deploy           # Deploy to production
+```
+
+---
 
 Add this snippet anywhere on your website:
 
