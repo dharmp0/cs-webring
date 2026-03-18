@@ -28,8 +28,8 @@ A webring is a group of websites linked together in a circular manner, centered 
 ```json
 {
   "name": "Your Name",
-  "year": 2027,
-  "website": "https://yoursite.com"
+  "url": "https://yoursite.com",
+  "cohort": "2027"
 }
 ```
 
@@ -83,16 +83,6 @@ vercel-deploy           # Deploy to production
 
 ---
 
-Add this snippet anywhere on your website:
-
-```html
-<div id="cs-webring"></div>
-<link rel="stylesheet" href="https://cs-webring.vercel.app/widget/themes.css">
-<script src="https://cs-webring.vercel.app/widget/webring.js"></script>
-```
-
-The widget auto-detects your site and displays **← Prev | Home | Random | Next →** navigation.
-
 ### Widget Themes
 
 Choose from 5 built-in themes:
@@ -124,13 +114,6 @@ Choose from 5 built-in themes:
 ```
 
 ---
-
-## Credits 
-
-* Inspired by [SE Webring](https://se-webring.xyz/) by Simran Thind and Janakitti Ratana-Rueangsri.
-* Fuzzy search powered by [Fuse.js](https://fusejs.io/).
-* 3D animations with [Three.js](https://threejs.org/).
-* Built with [React](https://react.dev/) + [Vite](https://vite.dev/).
 
 ---
 

@@ -122,7 +122,7 @@
 
       container.innerHTML = `
         <div class="webring-widget webring-theme-${this.theme}">
-          <a href="${prevUrl}" class="webring-link webring-prev" title="Previous: ${escapeHtml(prevName)}">
+          <a href="#" class="webring-link webring-prev" title="Previous: ${escapeHtml(prevName)}" id="webring-prev-link">
             ${escapeHtml(prevName)}
           </a>
 
@@ -130,11 +130,27 @@
             <img class="webring-logo" src="${logoUrl}" alt="${escapeHtml(this.logoAlt)}" />
           </a>
 
-          <a href="${nextUrl}" class="webring-link webring-next" title="Next: ${escapeHtml(nextName)}">
+          <a href="#" class="webring-link webring-next" title="Next: ${escapeHtml(nextName)}" id="webring-next-link">
             ${escapeHtml(nextName)}
           </a>
         </div>
       `;
+
+      // Attach click handlers to force navigation in current tab
+      const prevLink = document.getElementById("webring-prev-link");
+      if (prevLink) {
+        prevLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          window.location.href = prevUrl;
+        });
+      }
+      const nextLink = document.getElementById("webring-next-link");
+      if (nextLink) {
+        nextLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          window.location.href = nextUrl;
+        });
+      }
 
       // Re-render on theme change (system light/dark) if using logoLight or logoDark
       if (this.logoLight || this.logoDark) {
