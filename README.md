@@ -6,7 +6,7 @@
 
 A webring for Computer Science (CS) students at our university.
 
-**Live Site:** [cs-webring.pages.dev](https://cs-webring.pages.dev)
+**Live Site:** [cs-webring.vercel.app](https://cs-webring.vercel.app)
 
 ---
 
@@ -23,7 +23,7 @@ All navigation logic lives on the central webring site. Member sites only need a
 When a visitor clicks **←** or **→** on a member site, they are taken to:
 
 ```
-https://cs-webring.pages.dev/go?site=<encoded-url>&nav=prev|next|random
+https://cs-webring.vercel.app/go?site=<encoded-url>&nav=prev|next|random
 ```
 
 The central router (`/go`) reads the query parameters, looks up the site in `data/members.json` by hostname, computes the previous/next member with wraparound, and redirects in the same tab.
@@ -61,15 +61,15 @@ After your PR is merged, paste one of the snippets below into your site. **Repla
 
 ```html
 <div style="display:flex;align-items:center;gap:8px;">
-  <a href="https://cs-webring.pages.dev/go?site=https%3A%2F%2Fyour-site.com%2F&nav=prev">←</a>
-  <a href="https://cs-webring.pages.dev/">
+  <a href="https://cs-webring.vercel.app/go?site=https%3A%2F%2Fyour-site.com%2F&nav=prev">←</a>
+  <a href="https://cs-webring.vercel.app/">
     <img
-      src="https://cs-webring.pages.dev/icon.black.svg"
+      src="https://cs-webring.vercel.app/icon.black.svg"
       alt="CS Webring"
       style="width:24px;height:auto;opacity:0.8;"
     />
   </a>
-  <a href="https://cs-webring.pages.dev/go?site=https%3A%2F%2Fyour-site.com%2F&nav=next">→</a>
+  <a href="https://cs-webring.vercel.app/go?site=https%3A%2F%2Fyour-site.com%2F&nav=next">→</a>
 </div>
 ```
 
@@ -77,15 +77,15 @@ After your PR is merged, paste one of the snippets below into your site. **Repla
 
 ```jsx
 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-  <a href="https://cs-webring.pages.dev/go?site=https%3A%2F%2Fyour-site.com%2F&nav=prev">←</a>
-  <a href="https://cs-webring.pages.dev/">
+  <a href="https://cs-webring.vercel.app/go?site=https%3A%2F%2Fyour-site.com%2F&nav=prev">←</a>
+  <a href="https://cs-webring.vercel.app/">
     <img
-      src="https://cs-webring.pages.dev/icon.black.svg"
+      src="https://cs-webring.vercel.app/icon.black.svg"
       alt="CS Webring"
       style={{ width: "24px", height: "auto", opacity: 0.8 }}
     />
   </a>
-  <a href="https://cs-webring.pages.dev/go?site=https%3A%2F%2Fyour-site.com%2F&nav=next">→</a>
+  <a href="https://cs-webring.vercel.app/go?site=https%3A%2F%2Fyour-site.com%2F&nav=next">→</a>
 </div>
 ```
 

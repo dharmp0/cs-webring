@@ -74,11 +74,11 @@ After your PR is merged, add the webring snippet to your site. Replace `https://
 
 ```html
 <div style="display:flex;align-items:center;gap:8px;">
-  <a href="https://cs-webring.pages.dev/go?site=https%3A%2F%2Fyour-site.com%2F&nav=prev">←</a>
-  <a href="https://cs-webring.pages.dev/">
-    <img src="https://cs-webring.pages.dev/icon.black.svg" alt="CS Webring" style="width:24px;height:auto;opacity:0.8;" />
+  <a href="https://cs-webring.vercel.app/go?site=https%3A%2F%2Fyour-site.com%2F&nav=prev">←</a>
+  <a href="https://cs-webring.vercel.app/">
+    <img src="https://cs-webring.vercel.app/icon.black.svg" alt="CS Webring" style="width:24px;height:auto;opacity:0.8;" />
   </a>
-  <a href="https://cs-webring.pages.dev/go?site=https%3A%2F%2Fyour-site.com%2F&nav=next">→</a>
+  <a href="https://cs-webring.vercel.app/go?site=https%3A%2F%2Fyour-site.com%2F&nav=next">→</a>
 </div>
 ```
 
