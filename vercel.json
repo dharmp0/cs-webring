@@ -5,6 +5,10 @@
   "framework": "vite",
   "rewrites": [
     {
+      "source": "/go",
+      "destination": "/go/index.html"
+    },
+    {
       "source": "/api/:path*",
       "destination": "/api/:path*.js"
     }

@@ -9,51 +9,64 @@
 </head>
 <body>
     <header>
-        <h1>🔗 CS Webring</h1>
+        <h1>CS Webring</h1>
         <p>Connecting CS student personal websites</p>
     </header>
 
     <main>
         <section class="intro">
             <h2>Welcome to the Webring</h2>
-            <p>A webring links personal websites together in a ring. Use the widget on any member site to navigate through all connected sites!</p>
+            <p>A webring links personal websites together in a ring. Members add a small embed snippet to their site so visitors can navigate to the previous or next member.</p>
         </section>
 
         <section class="directory">
             <h2>Member Directory</h2>
             <ul id="site-list">
-                <!-- Sites will be loaded from webring.json -->
+                <!-- Loaded from data/members.json -->
             </ul>
         </section>
 
         <section class="join">
             <h2>Join the Webring</h2>
-            <p>Want to join? Add your site to <code>data/webring.json</code> via Pull Request on <a href="https://github.com/Devansh015/cs-ds-webring">GitHub</a>.</p>
-            
-            <h3>Add Widget to Your Site</h3>
-            <p>Paste this code into your website:</p>
-            <pre><code>&lt;div id="cs-webring"&gt;&lt;/div&gt;
-&lt;link rel="stylesheet" href="https://Devansh015.github.io/cs-ds-webring/widget/themes.css"&gt;
-&lt;script src="https://Devansh015.github.io/cs-ds-webring/widget/webring.js"&gt;&lt;/script&gt;</code></pre>
+            <p>Want to join? Add your site to <code>data/members.json</code> via Pull Request on <a href="https://github.com/Devansh015/cs-webring">GitHub</a>.</p>
+
+            <h3>Embed the Webring on Your Site</h3>
+            <p>After your PR is merged, paste this HTML into your site:</p>
+            <pre><code>&lt;div style="display:flex;align-items:center;gap:8px;"&gt;
+  &lt;a href="https://cs-webring.pages.dev/go?site=https%3A%2F%2Fyour-site.com%2F&amp;nav=prev"&gt;&amp;larr;&lt;/a&gt;
+  &lt;a href="https://cs-webring.pages.dev/"&gt;
+    &lt;img src="https://cs-webring.pages.dev/icon.black.svg" alt="CS Webring" style="width:24px;height:auto;opacity:0.8;" /&gt;
+  &lt;/a&gt;
+  &lt;a href="https://cs-webring.pages.dev/go?site=https%3A%2F%2Fyour-site.com%2F&amp;nav=next"&gt;&amp;rarr;&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+            <p>Replace <code>https://your-site.com/</code> with your actual submitted site URL (URL-encoded in the <code>site=</code> parameter).</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 CS Webring | <a href="https://github.com/Devansh015/cs-ds-webring">GitHub</a></p>
+        <p>&copy; 2026 CS Webring | <a href="https://github.com/Devansh015/cs-webring">GitHub</a></p>
     </footer>
 
     <script>
-        fetch('../data/webring.json')
-            .then(response => response.json())
-            .then(data => {
-                const siteList = document.getElementById('site-list');
-                data.sites.forEach(site => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `<a href="${site.url}" target="_blank">${site.name}</a> - ${site.description}`;
+        fetch('../data/members.json')
+            .then(function (response) { return response.json(); })
+            .then(function (members) {
+                var siteList = document.getElementById('site-list');
+                members.forEach(function (member) {
+                    var li = document.createElement('li');
+                    var a = document.createElement('a');
+                    a.href = member.website;
+                    a.target = '_blank';
+                    a.rel = 'noopener';
+                    a.textContent = member.name;
+                    li.appendChild(a);
+                    if (member.year) {
+                        li.appendChild(document.createTextNode(' — Class of ' + member.year));
+                    }
                     siteList.appendChild(li);
                 });
             })
-            .catch(err => console.error('Error loading sites:', err));
+            .catch(function (err) { console.error('Error loading members:', err); });
     </script>
 </body>
 </html>

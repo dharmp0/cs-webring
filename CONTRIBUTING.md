@@ -1,6 +1,6 @@
-# Contributing to CS-DS Webring
+# Contributing to CS Webring
 
-Thank you for your interest in joining the CS-DS Webring! 🎉
+Thank you for your interest in joining the CS Webring!
 
 ## 📋 Submission Rules
 
@@ -25,7 +25,7 @@ Thank you for your interest in joining the CS-DS Webring! 🎉
 
 1. **HTTPS**: Your site should use HTTPS (strongly recommended).
 
-2. **Widget Placement**: You must add the webring widget to your site in a visible location.
+2. **Embed Snippet**: You must add the webring embed snippet to your site in a visible location.
 
 3. **No Broken Links**: Ensure your site doesn't have excessive broken links.
 
@@ -68,14 +68,18 @@ npm run build
 3. Open a Pull Request to the main repository
 4. Fill out the PR template (if provided)
 
-### Step 5: Add the Widget
+### Step 5: Add the Embed Snippet
 
-After your PR is merged, add the widget to your site:
+After your PR is merged, add the webring snippet to your site. Replace `https://your-site.com/` with your actual submitted URL (URL-encoded in the `site=` parameter):
 
 ```html
-<div id="cs-ds-webring"></div>
-<link rel="stylesheet" href="https://your-domain.com/widget/themes.css">
-<script src="https://your-domain.com/widget/webring.js"></script>
+<div style="display:flex;align-items:center;gap:8px;">
+  <a href="https://cs-webring.pages.dev/go?site=https%3A%2F%2Fyour-site.com%2F&nav=prev">←</a>
+  <a href="https://cs-webring.pages.dev/">
+    <img src="https://cs-webring.pages.dev/icon.black.svg" alt="CS Webring" style="width:24px;height:auto;opacity:0.8;" />
+  </a>
+  <a href="https://cs-webring.pages.dev/go?site=https%3A%2F%2Fyour-site.com%2F&nav=next">→</a>
+</div>
 ```
 
 ## ✏️ Updating Your Entry
@@ -91,14 +95,14 @@ To update your site information:
 If you want to leave the webring:
 
 1. Submit a PR removing your entry from `data/members.json`
-2. Remove the widget from your site
+2. Remove the embed snippet from your site
 
 ## 🚫 Grounds for Removal
 
 Sites may be removed for:
 
 - Becoming inactive for over 12 months
-- Removing the webring widget
+- Removing the webring embed snippet
 - Adding inappropriate content
 - Domain expiration
 - Violating our Code of Conduct
