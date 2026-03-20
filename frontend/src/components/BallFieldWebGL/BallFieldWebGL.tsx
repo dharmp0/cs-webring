@@ -151,7 +151,6 @@ export default function BallFieldWebGL({ scatterAmount }: { scatterAmount: numbe
     const planeZ0 = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
 
     const lastHandPos = new THREE.Vector3(999, 999, 0);
-    let handSpeed = 0;
 
     const updateHandFromClientXY = (clientX: number, clientY: number) => {
       const rect = host.getBoundingClientRect();
@@ -184,7 +183,6 @@ export default function BallFieldWebGL({ scatterAmount }: { scatterAmount: numbe
       handActive.value = false;
       handPos.set(999, 999, 0);
       lastHandPos.set(999, 999, 0);
-      handSpeed = 0;
     };
 
     window.addEventListener("pointermove", onPointerMove, { passive: true });
@@ -322,7 +320,7 @@ export default function BallFieldWebGL({ scatterAmount }: { scatterAmount: numbe
     const applyHandForces = (dtSec: number) => {
       if (!handActive.value) {
         smoothHandSpeed = 0;
-        handSpeed = 0;
+        smoothHandSpeed = 0;
         lastHandPos.set(999, 999, 0);
         return;
       }
@@ -336,7 +334,6 @@ export default function BallFieldWebGL({ scatterAmount }: { scatterAmount: numbe
       // Exponential moving average — smooths out spiky cursor jumps
       const smoothing = 0.15;
       smoothHandSpeed += (rawSpeed - smoothHandSpeed) * smoothing;
-      handSpeed = smoothHandSpeed;
 
       const DEADZONE = 2.0;
       const MAX_SPEED = 20.0;
